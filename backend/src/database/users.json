@@ -1,0 +1,22 @@
+{
+  "1": { "username": "Mathgobbo", "phone": "999" },
+  "2": { "username": "Vinitunes", "phone": "888" },
+  "3": {
+    "username": "Tester",
+    "phone": "777",
+    "password": "32fb15ad9594d4b656c0abad4dd0f084900c2a7cd877883adc0c6f96f48fb47d",
+    "salt": "4e87a18fbb93a28a13c0542770640311"
+  },
+  "4": {
+    "username": "Tester",
+    "phone": "777",
+    "password": "a112e73129727977c5859adb1260c671a0e02b695f7d5fd22b2f5cd14fb70841",
+    "salt": "78d603126f510138e4e63be28e83f273"
+  },
+  "5": {
+    "username": "Ronaldo",
+    "phone": "456",
+    "password": "4c8ffa80b1dac437c84b68a0a8cd9c38c230045b5f3c33869b32d9f5a4f56c8d",
+    "salt": "af29c8b2793a88c4c3f459ba450adce5"
+  }
+}
