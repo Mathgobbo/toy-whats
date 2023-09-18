@@ -3,7 +3,6 @@ import path from "path";
 
 const dataPath = "./src/database/users.json"; // path to our JSON file
 
-// util functions
 export const saveAccountData = (data: any) => {
   const stringifyData = JSON.stringify(data);
   fs.writeFileSync(dataPath, stringifyData);

@@ -9,6 +9,7 @@ import {
 } from "../repositories/user";
 import { encode } from "hi-base32";
 import * as OTPAuth from "otpauth";
+
 /**
  * Function to generate a Random Base32 string
  * that is used as secret of the User for the TOTP
