@@ -11,6 +11,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { SignUpPage } from "../pages/SignUp";
+import { SocketProvider } from "../context/SocketContext";
 
 export const MainRoutes = () => {
   return (
@@ -20,7 +21,9 @@ export const MainRoutes = () => {
           path="/"
           element={
             <RequireAuth>
-              <DashboardPage />
+              <SocketProvider>
+                <DashboardPage />
+              </SocketProvider>
             </RequireAuth>
           }
         />

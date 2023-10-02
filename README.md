@@ -13,3 +13,7 @@ All endpoints are commented and they're inside `backend/src/controllers/`
 
 ### Frontend
 Very simple frontend, built with React (using Vite) and `react-router-dom` for the route management.
+
+### Useful Links
+
+AES GCM and Auth Tag in practice: https://crypto.stackexchange.com/questions/101574/how-is-aes-gcm-iv-and-auth-tag-used
