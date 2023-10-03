@@ -1,6 +1,6 @@
 import { Server } from "socket.io";
 import { server } from "./Express";
-import { getChats } from "./controllers/chat";
+import { getChats, newMessage } from "./controllers/chat";
 
 const io = new Server(server, {
   cors: {
@@ -12,6 +12,7 @@ io.on("connect", (socket) => {
   console.log("a user connected");
 
   socket.on("joining-chat", getChats);
+  socket.on("new-mesage", newMessage);
 
   socket.on("disconnect", () => {
     console.log("user disconnected");

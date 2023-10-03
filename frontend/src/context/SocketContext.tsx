@@ -7,18 +7,19 @@ import {
 } from "react";
 import { socket } from "../service/socket";
 import { useAuth } from "./AuthContext";
+import { Chat } from "../types/Chat";
 
 const SocketContext = createContext({
   isConnected: false,
   connect: () => {},
   disconnect: () => {},
-  chats: [] as { message: string }[],
+  chats: [] as Chat[],
 });
 
 export const SocketProvider = ({ children }: { children: ReactNode }) => {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const { user } = useAuth();
-  const [chats, setChats] = useState<{ message: string }[]>([]);
+  const [chats, setChats] = useState<Chat[]>([]);
 
   function connect() {
     socket.connect();
@@ -31,8 +32,8 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     function onConnect() {
       console.log("Connected");
-      socket.emit("joining-chat", user?.id);
       setIsConnected(true);
+      socket.emit("joining-chat", user?.id);
     }
 
     function onDisconnect() {
@@ -40,7 +41,7 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
       setIsConnected(false);
     }
 
-    function onChatMessage(chats: { message: string }[]) {
+    function onChatMessage(chats: Chat[]) {
       setChats(chats);
     }
 
@@ -51,7 +52,7 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
       socket.off("connect", onConnect);
       socket.off("disconnect", onDisconnect);
     };
-  }, []);
+  }, [user?.id]);
   return (
     <SocketContext.Provider value={{ isConnected, connect, disconnect, chats }}>
       {children}
