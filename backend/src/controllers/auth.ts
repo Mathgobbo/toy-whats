@@ -105,6 +105,7 @@ export const signIn = async (req: Request, res: Response) => {
 };
 
 // =========================== TOTP FUNCTIONS ===========================
+// TOTP = Time-based one time Password
 
 /**
  * Function to generate a Random Base32 string
@@ -253,6 +254,7 @@ export const validateOtp = async (req: Request, res: Response) => {
 
     // If `delta` is null, means that the token is invalid
     if (delta == null) throw new Error("Invalid Token");
+
     // Returning...
     res.send({ message: "OTP valid" });
   } catch (error) {

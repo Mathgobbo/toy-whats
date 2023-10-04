@@ -53,7 +53,9 @@ export const encryptMessage = (
   cipher.update(forge.util.createBuffer(message));
   cipher.finish();
 
+  // Cipher Text
   const encrypted = cipher.output.toHex();
+  // tag = MAC
   const tag = cipher.mode.tag.toHex();
 
   return `${encrypted}-${tag}`;
